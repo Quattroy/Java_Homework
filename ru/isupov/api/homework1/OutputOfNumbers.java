@@ -7,9 +7,9 @@ import java.util.Scanner;
 class TOutputOfNumbers {
     
     static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
+    public static void run() {
 
-        for (int j = 2; j <= 100; j++) {
+        for (int j = 2; j <= 1000; j++) {
             boolean simple = false;
 
             for (int i = 2; i * i <= j; i++) {
@@ -22,5 +22,6 @@ class TOutputOfNumbers {
                 System.out.print(j + " ");
             }
         }
+        System.out.println();
     }
 }
