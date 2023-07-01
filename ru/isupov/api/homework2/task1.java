@@ -19,10 +19,11 @@ public class task1 {
     public static String query(Map<String, String> parametr) {
         StringBuilder str = new StringBuilder();
         for(Map.Entry<String, String> item : parametr.entrySet()){
-            if(item.getValue() != null) {
+            if(item.getValue() != "null") {
                 str.append(item.getKey() + " = " + item.getValue() + " and ");
             }
         }
+        str.delete(str.toString().length()-5,str.toString().length());
         return str.toString();
     }
 }
