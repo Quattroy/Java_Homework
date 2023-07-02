@@ -1,5 +1,8 @@
 package ru.isupov.api.homework1;
 import java.util.Scanner;
+import java.util.logging.*;
+import java.io.IOException;
+
 
 
 public class Calculator {
@@ -35,6 +38,9 @@ public class Calculator {
             System.out.println("Вы ввели некорректный тип операции!");
         }
         System.out.println();
+
+        loggerSt();
+
     }
 
 
@@ -57,5 +63,23 @@ public class Calculator {
     public static double multiplication(double a, double b){
         double res = a * b;
         return res;
+    }
+
+     public static void loggerSt()throws IOException {
+        
+        Logger logger = Logger.getLogger(Calculator.class.getName());
+        //ConsoleHandler ch = new ConsoleHandler();
+        FileHandler fh = new FileHandler("log.txt");
+        //logger.addHandler(ch);
+        logger.addHandler(fh);
+        
+        SimpleFormatter sFormat = new SimpleFormatter();
+        //XMLFormatter xml = new XMLFormatter();
+        fh.setFormatter(sFormat);
+        //fh.setFormatter(xml);
+        
+        //logger.setLevel(Level.INFO);
+        logger.log(Level.WARNING, "Тестовое логирование 1");
+        logger.info("Тестовое логирование 2");
     }
 }
